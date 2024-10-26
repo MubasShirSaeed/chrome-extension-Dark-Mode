@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Mode",
+  "version": "1.0.0",
+  "description": "Dark Mode Chrome Extension",
+  "icons": {
+    "32": "night-mode.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "32": "night-mode.png"
+     
+    }
+  },
+  "background":{
+    "service_worker": "service_worker.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+    
+
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
+      "js": ["content.js"]
+      
+    }
+  ]
+} 
